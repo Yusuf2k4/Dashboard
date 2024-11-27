@@ -6,6 +6,7 @@ import estanisPedrola from '../images/playerImages/estanisPedrola.png'
 
 export const soldPlayer = [
   {
+ 
     PlayerName: "Mikayil Faye",
     soldFor: 10.30,
     img: mikalFaye,

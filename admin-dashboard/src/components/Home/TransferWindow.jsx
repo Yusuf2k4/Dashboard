@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { v4 as uuidv4 } from 'uuid';
 import UserCard from "./UserCard";
 import { soldPlayer as initialSoldPlayer } from "../../assets/data/soldPlayers";
 
@@ -30,8 +31,8 @@ const TransferWindow = () => {
 
   // Fetch players and sold players from localStorage on mount
   useEffect(() => {
-    setPlayers(getPlayersFromStorage());
-    setSoldPlayer(getSoldPlayersFromStorage());
+    setPlayers(getPlayersFromStorage().map(player => ({ ...player, id: player.id || uuidv4() })));
+    setSoldPlayer(getSoldPlayersFromStorage().map(player => ({ ...player, id: player.id || uuidv4() })));
   }, []);
 
   // Filter players based on the 'boughtIn' year and sold status
